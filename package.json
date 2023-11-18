@@ -34,6 +34,7 @@
     "quickstart"
   ],
   "dependencies": {
-    "jgraph": "^0.2.0"
+    "jgraph": "^0.2.0",
+    "mxgraph": "^4.2.2"
   }
 }
