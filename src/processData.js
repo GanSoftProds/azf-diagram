@@ -19,17 +19,10 @@ function process(list) {
 
   for (let binding of list) {
 
-
     //comprobar si el recurso al que apuntamos existe,
     // si no existe lo anyadimos a la lista global de recursos
     if (resources[binding.resource_name] == undefined) {
       resources[binding.resource_name] = binding.type
-    }
-
-    if (binding.direction == "in") {
-
-      actualResourceInfo["input_edges"].push(binding.resource_name)
-
     }
 
     if (binding.direction == "in") {
@@ -45,7 +38,7 @@ function process(list) {
 
 }
 
-async function  main()  {
+async function main() {
   let list = await freader(file)
   process(list)
   console.log(resources)
