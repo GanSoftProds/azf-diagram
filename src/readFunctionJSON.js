@@ -20,10 +20,10 @@ async function readFunctionJSON(file) {
     const jsonString = await fs.readJson(file);
 
     for (let i = 0; i < jsonString.bindings.length; i++) {
+      
       if (!jsonString.bindings[i].connection){
         jsonString.bindings[i].connection = makeid(5);
       }
-
 
       bindings.push({
         type: jsonString.bindings[i].type,
