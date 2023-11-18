@@ -32,5 +32,8 @@
     "template",
     "skeleton",
     "quickstart"
-  ]
+  ],
+  "dependencies": {
+    "jgraph": "^0.2.0"
+  }
 }
