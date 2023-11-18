@@ -1,9 +1,11 @@
+let freader = require('./readFunctionJSON');
 // Partimos de la base de que cada azure function es un recurso unico
 
 // mapa clave - valor 
 // tipo y nombre
 let resources = {}
 
+const file = './azure_function_example/HttpTrigger1/function.json';
 
 function process(list) {
 
@@ -15,7 +17,8 @@ function process(list) {
   }
   resources[actualAzf] = actualResourceInfo
 
-  for (let binding in list) {
+  for (let binding of list) {
+
 
     //comprobar si el recurso al que apuntamos existe,
     // si no existe lo anyadimos a la lista global de recursos
@@ -42,3 +45,11 @@ function process(list) {
 
 }
 
+async function  main()  {
+  let list = await freader(file)
+  process(list)
+  console.log(resources)
+}
+
+
+main()
