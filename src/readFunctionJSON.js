@@ -18,19 +18,17 @@ async function readFunctionJSON(file) {
   try {
 
     const jsonString = await fs.readJson(file);
-    let name;
 
     for (let i = 0; i < jsonString.bindings.length; i++) {
       if (!jsonString.bindings[i].connection){
-        name = makeid(5);
+        jsonString.bindings[i].connection = makeid(5);
       }
-      else{
-        name = jsonString.bindigs[i].connection;
-      }
+
+
       bindings.push({
         type: jsonString.bindings[i].type,
         direction: jsonString.bindings[i].direction,
-        resource_name: name
+        resource_name: jsonString.bindings[i].connection
       });
     }
 
@@ -44,6 +42,7 @@ async function readFunctionJSON(file) {
   }
   return bindings
 }
+
 
 module.exports = readFunctionJSON
 
