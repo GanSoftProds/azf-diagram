@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<mxfile>
+    <diagram name="Azure Test Diagram" id="this-is-a-random-id">
+        <mxGraphModel>
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="Funcion 1" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/compute/Function_Apps.svg;" parent="1" vertex="1">
+                    <mxGeometry x="270" y="180" width="50" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="gGgEx" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/compute/Function_Apps.svg;" parent="1" vertex="1">
+                    <mxGeometry x="370" y="180" width="50" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="AzureWebJobsStorage" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/compute/Function_Apps.svg;" parent="1" vertex="1">
+                    <mxGeometry x="470" y="180" width="50" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="uuid-arrow-0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" edge="1" source="gGgEx" target="Funcion 1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="uuid-arrow-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" edge="1" source="Funcion 1" target="AzureWebJobsStorage">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
