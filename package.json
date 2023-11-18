@@ -35,6 +35,7 @@
   ],
   "dependencies": {
     "jgraph": "^0.2.0",
-    "mxgraph": "^4.2.2"
+    "mxgraph": "^4.2.2",
+    "xml-writer": "^1.7.0"
   }
 }
