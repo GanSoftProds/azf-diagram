@@ -1,6 +1,9 @@
 # Azure Diagram Generator (azf-diagram)
 
-**Azure Diagram Generator** is a javascript library that generates a draw.io diagram for your Azure functions projects.
+**Azure Diagram Generator** is a javascript tool that generates a draw.io diagram for your Azure Functions projects.
+
+**This library only supports Azure Function v3 model**
+
 This repository is part of the **Open Source Jam (2023-11-18 to 2023-11-19)**, located in Alicante.
 
 ## Installation
