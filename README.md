@@ -33,6 +33,12 @@ The output should be generated on a file named `diagram.drawio`, containing the 
 Due to the small period of time of developing this tool, we have problem with collision among the generated data.
 To avoid this, when importing to draw.io, **reorder** the diagram as you want.
 
+Before:
+![Before reorder](assets/diagram-unordered-dark.png)
+
+After:
+![After reorder](assets/diagram-ordered-dark.png)
+
 ## Dependencies
 
 - [fs-extra](https://www.npmjs.com/package/fs-extra)
