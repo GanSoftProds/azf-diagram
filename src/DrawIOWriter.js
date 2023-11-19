@@ -131,6 +131,7 @@ class DrawIOWriter {
         width: 50,
         height: 50,
         type,
+        text: key // TODO: Text can be improved
       });
       offset += 100
     });
