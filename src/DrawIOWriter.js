@@ -3,13 +3,14 @@ const fs = require('fs');
 
 class DrawIOWriter {
 
-  constructor(tuple) {
+  constructor(tuple, fileName = 'diagram.drawio') {
     this.xw = new XMLWriter(true);
     this.xw.startDocument();
 
     this.resources = tuple.resourceMap
     this.edges = tuple.edgeList
 
+    this.fileName = fileName;
   }
 
   //
@@ -152,15 +153,17 @@ class DrawIOWriter {
     this.xw.endElement();
     this.xw.endDocument();
 
-    this.generateFile(this.xw.toString());
+    return this.generateFile(this.xw.toString());
   }
 
   generateFile(content) {
-    fs.writeFile('diagram.drawio', content, err => {
+    fs.writeFile(this.fileName, content, err => {
       if (err) {
         console.error(err);
       }
     });
+
+    return this.fileName;
   }
 
   test() {
