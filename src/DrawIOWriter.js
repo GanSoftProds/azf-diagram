@@ -1,4 +1,5 @@
 var XMLWriter = require('xml-writer');
+const fs = require('fs');
 
 class DrawIOWriter {
 
@@ -151,7 +152,15 @@ class DrawIOWriter {
     this.xw.endElement();
     this.xw.endDocument();
 
-    console.log(this.xw.toString());
+    this.generateFile(this.xw.toString());
+  }
+
+  generateFile(content) {
+    fs.writeFile('diagram.drawio', content, err => {
+      if (err) {
+        console.error(err);
+      }
+    });
   }
 
   test() {

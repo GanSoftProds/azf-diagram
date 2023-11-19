@@ -11,6 +11,8 @@ async function main() {
 
   let wrt = new DrawIOWriter(tuple)
   wrt.process()
+
+  console.log('All good!!');
 }
 
 
