@@ -25,15 +25,22 @@ class DrawIOWriter {
   }
 
   // escribimos un recurso
-  writeIcon({ id, text = '', x, y, width, height }) {
-    let icon = 'img/lib/azure2/compute/Function_Apps.svg';
+  writeIcon({ id, text = '', x, y, width, height, type }) {
+    const defaultIcon = 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/general/Code.svg;';
+    const icons = [
+      { type: 'function', data: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/compute/Function_Apps.svg;' },
+      { type: 'httpTrigger', data: 'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.storage_blob;' },
+      { type: 'blob', data: 'outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.http_protocol;fillColor=#5294CF;gradientColor=none;' },
+    ];
+
+    const { data: icon = defaultIcon } = icons.find(({ type: iconType }) => iconType === type) ?? {};
 
     this.writeElement({
       tag: 'mxCell',
       params: {
         id: id,
         value: text,
-        style: `image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=${icon};`,
+        style: icon,
         parent: 1,
         vertex: 1,
       },
@@ -92,10 +99,7 @@ class DrawIOWriter {
 
 
   process() {
-    
-
     this.writeElement({ tag: 'mxfile', close: false })
-
 
     this.writeElement({
       tag: 'diagram',
@@ -113,19 +117,21 @@ class DrawIOWriter {
     this.writeElement({ tag: 'mxCell', params: { id: 0 } })
     this.writeElement({ tag: 'mxCell', params: { id: 1, parent: 0 } })
 
-
     var offset = 0
-    for (let rsc in this.resources) {
+    Object.entries(this.resources).forEach(([key, value]) => {
+      const { type = undefined } = value;
+      if (type === undefined) return;
 
       this.writeIcon({
-        id: rsc ,
+        id: key,
         x: 270 + offset,
         y: 180,
         width: 50,
         height: 50,
+        type,
       });
       offset += 100
-    }
+    });
 
     let idArrow = 'uuid-arrow-'
     let i = 0
