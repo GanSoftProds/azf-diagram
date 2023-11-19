@@ -1,5 +1,5 @@
 let freader = require('./readFunctionJSON');
-let processData = require('./processData');
+let ProcessData = require('./ProcessData');
 let DrawIOWriter = require('./DrawIOWriter');
 
 async function main() {
@@ -15,7 +15,8 @@ async function main() {
   let list = await freader(file)
 
   console.log('2.- Processing data');
-  let tuple = processData(list)
+  const prc = new ProcessData();
+  let tuple = prc.process(list)
 
   console.log('3.- Writing on file');
   let wrt = new DrawIOWriter(tuple)
