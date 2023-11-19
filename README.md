@@ -28,6 +28,11 @@ azf-diagram -p .
 
 The output should be generated on a file named `diagram.drawio`, containing the necessary information
 
+## Improvements
+
+Due to the small period of time of developing this tool, we have problem with collision among the generated data.
+To avoid this, when importing to draw.io, **reorder** the diagram as you want.
+
 ## Dependencies
 
 - [fs-extra](https://www.npmjs.com/package/fs-extra)
