@@ -16,7 +16,8 @@ async function main() {
 
   console.log('2.- Processing data');
   const prc = new ProcessData();
-  let tuple = prc.process(list)
+  prc.process(list)
+  const tuple = prc.getDataProcessed();
 
   console.log('3.- Writing on file');
   let wrt = new DrawIOWriter(tuple)

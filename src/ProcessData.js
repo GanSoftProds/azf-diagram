@@ -1,40 +1,43 @@
 class ProcessData {
-  constructor() {}
+  constructor() {
+    this.resources = {};
+    this.edges = [];
+    this.functionIndex = 0;
+  }
+
+  getActualFunctionName(inc = true) {
+    return `Function ${inc ? ++this.functionIndex : this.functionIndex}`;
+  }
 
   process(list) {
-    let resources = {}
-    let edges = []
-
-    let actualAzf = "Funcion 1"
-    var actualResourceInfo = {
+    const functionName = this.getActualFunctionName();
+    this.resources[functionName] = {
       type: "function"
-      // input_edges: [],
-      //output_edges: []
-    }
-    resources[actualAzf] = actualResourceInfo
+    };
 
     for (let binding of list) {
-      //comprobar si el recurso al que apuntamos existe,
-      // si no existe lo anyadimos a la lista global de recursos
-      if (resources[binding.resource_name] == undefined) {
-        resources[binding.resource_name] = actualResourceInfo = {
+      // NOTE: Check if the resource exists, if not, then add to the global resource list
+      if (this.resources[binding.resource_name] === undefined) {
+        this.resources[binding.resource_name] = {
           type: binding.type,
-          input_edges: [],
-          output_edges: []
         }
       }
 
       if (binding.direction == "in") {
-        edges.push({ ori: binding.resource_name, dest: actualAzf })
+        this.edges.push({ ori: binding.resource_name, dest: functionName })
       }
 
       if (binding.direction == "out") {
-        edges.push({ ori: actualAzf, dest: binding.resource_name, })
+        this.edges.push({ ori: functionName, dest: binding.resource_name, })
       }
-
     }
+  }
 
-    return { resourceMap: resources, edgeList: edges }
+  getDataProcessed() {
+    return {
+      resourceMap: this.resources,
+      edgeList: this.edges
+    }
   }
 }
 
