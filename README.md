@@ -19,7 +19,7 @@ npm install azf-diagram -g
 Install and execute the following command in your Azure functions project to generate the diagram:
 
 ```shell
-azf-diagram -p .
+azf-diagram -p ./
 ```
 
 | Params | Required | Data                                     |

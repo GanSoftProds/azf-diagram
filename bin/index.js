@@ -4,7 +4,7 @@ const yargs = require("yargs");
 const index = require("../src/index");
 
 
-const usage = chalk.keyword('violet')("\nUsage: mycli -l <language>  -s <sentence> \n");
+const usage = chalk.keyword('violet')("\nUsage: azf -p <app_folder> \n");
 const options = yargs
   .usage(usage)
   .option("p", { alias: "path", describe: "Azure Function App PATH ", type: "string", demandOption: true })
