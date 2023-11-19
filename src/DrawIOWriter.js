@@ -33,6 +33,7 @@ class DrawIOWriter {
       { type: 'function', data: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/compute/Function_Apps.svg;' },
       { type: 'httpTrigger', data: 'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.storage_blob;' },
       { type: 'blob', data: 'outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.http_protocol;fillColor=#5294CF;gradientColor=none;' },
+      { type: 'eventHub', data: 'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Event_Hubs.svg' },
     ];
 
     const { data: icon = defaultIcon } = icons.find(({ type: iconType }) => iconType === type) ?? {};
