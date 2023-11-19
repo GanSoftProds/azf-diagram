@@ -32,9 +32,9 @@ async function readFunctionJSON(file) {
       });
     }
 
-    for (let i = 0; i < bindings.length; i++) {
-      console.log(bindings[i]);
-    }
+    // for (let i = 0; i < bindings.length; i++) {
+    //   console.log(bindings[i]);
+    // }
 
 
   } catch (err) {

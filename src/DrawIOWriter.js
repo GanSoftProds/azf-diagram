@@ -125,7 +125,6 @@ class DrawIOWriter {
         height: 50,
       });
       offset += 100
-      console.log(rsc)
     }
 
     let idArrow = 'uuid-arrow-'
@@ -139,16 +138,12 @@ class DrawIOWriter {
         idTarget: edge.dest,
       });
 
-      console.log(edge)
-
       i++
     }
 
 
     this.xw.endElement();
     this.xw.endDocument();
-
-    console.log(this.xw.toString());
   }
 
   test() {
@@ -200,8 +195,6 @@ class DrawIOWriter {
 
     console.log(this.xw.toString());
   }
-
-
 }
 
 

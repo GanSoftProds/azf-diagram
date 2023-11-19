@@ -13,7 +13,7 @@ function getValidFunctionsPath(dirList) {
   for (const dir of dirList) {
 
     if (fs.existsSync(dir + "/function.json")) {
-      console.log("Azure function encontrada: " + dir)
+      // console.log("Azure function encontrada: " + dir)
     }
   }
 
@@ -21,7 +21,7 @@ function getValidFunctionsPath(dirList) {
 }
 
 let paths = getDirectories(wd)
-console.log(paths);
+// console.log(paths);
 
 getValidFunctionsPath(paths);
-console.log("\nCurrent directory filenames:");
+// console.log("\nCurrent directory filenames:");
