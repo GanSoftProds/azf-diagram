@@ -17,7 +17,7 @@ function getValidFunctionsPath(dirList, wd) {
   var list = []
   for (const dir of dirList) {
     if (fs.existsSync(wd + dir + "/function.json")) {
-      console.log("Azure function encontrada: " + dir)
+      //console.log("Azure function encontrada: " + dir)
       list.push(wd + dir + "/function.json")
     }
   }

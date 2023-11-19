@@ -19,7 +19,7 @@ async function main(folderPath) {
   const prc = new ProcessData();
 
   for (let json of listJson) {
-    console.log(json)
+    //console.log(json)
     let list = await freader(json)
     prc.process(list)
 
@@ -28,7 +28,7 @@ async function main(folderPath) {
   const tuple = prc.getDataProcessed();
 
   console.log('3.- Writing on file');
-  console.log(tuple);
+  //console.log(tuple);
 
   let wrt = new DrawIOWriter(tuple)
   const fileName = wrt.process()
