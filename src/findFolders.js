@@ -1,27 +1,42 @@
 const fs = require('fs');
-const pathL = require('path');
+const path = require('path');
 
-let wd = "/home/juan/Escritorio/opensourcejam202311/azure_function_example/"
+//let readFunctionJSON = require("./readFunctionJSON");
+
+//let wd =  process.argv.slice(2)[0];
+
+
 function getDirectories(path) {
   return fs.readdirSync(path).filter(function (file) {
     return fs.statSync(path + '/' + file).isDirectory();
   })
 }
 
-function getValidFunctionsPath(dirList) {
+function getValidFunctionsPath(dirList, wd) {
 
+  var list = []
   for (const dir of dirList) {
-
-    if (fs.existsSync(dir + "/function.json")) {
-      // console.log("Azure function encontrada: " + dir)
+    if (fs.existsSync(wd + dir + "/function.json")) {
+      console.log("Azure function encontrada: " + dir)
+      list.push(wd + dir + "/function.json")
     }
   }
 
+  return list
+}
+
+function main(wd) {
+  let paths = getDirectories(wd)
+  // console.log(paths);
+
+  getValidFunctionsPath(paths);
+  // console.log("\nCurrent directory filenames:");
+  //console.log(paths); 
+
+  return getValidFunctionsPath(paths, wd);
 
 }
 
-let paths = getDirectories(wd)
-// console.log(paths);
 
-getValidFunctionsPath(paths);
-// console.log("\nCurrent directory filenames:");
+module.exports = main
+

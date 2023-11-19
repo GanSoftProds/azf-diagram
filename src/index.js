@@ -1,4 +1,6 @@
 let freader = require('./readFunctionJSON');
+let scanFolders = require('./findFolders');
+
 let ProcessData = require('./ProcessData');
 let DrawIOWriter = require('./DrawIOWriter');
 
@@ -9,17 +11,25 @@ async function main(folderPath) {
   console.log('###########################');
   console.log('\n');
 
-  const file = './azure_function_example/HttpTrigger1/function.json';
 
-  console.log('1.- Reading directory');
-  let list = await freader(file)
+  console.log('0.- Detecting Functions');
+  let listJson = await scanFolders(folderPath)
 
-  console.log('2.- Processing data');
+  console.log('1.- Reading Jsons');
   const prc = new ProcessData();
-  prc.process(list)
+
+  for (let json of listJson) {
+    console.log(json)
+    let list = await freader(json)
+    prc.process(list)
+
+  }
+  console.log('2.- Processing data');
   const tuple = prc.getDataProcessed();
 
   console.log('3.- Writing on file');
+  console.log(tuple);
+
   let wrt = new DrawIOWriter(tuple)
   const fileName = wrt.process()
 

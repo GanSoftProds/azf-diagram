@@ -1,0 +1,18 @@
+{
+  "bindings": [
+    {
+      "name": "myBlob",
+      "type": "blobTrigger",
+      "direction": "in",
+      "path": "samples-workitems/{name}",
+      "connection": "AzureWebJobsStorage"
+    },
+    {
+      "type": "eventHub",
+      "direction": "out",
+      "name": "outputEventHubMessage",
+      "connection": "EventHub_1",
+      "eventHubName": "outeventhub"
+    }
+  ]
+}
