@@ -2,7 +2,7 @@ let freader = require('./readFunctionJSON');
 let ProcessData = require('./ProcessData');
 let DrawIOWriter = require('./DrawIOWriter');
 
-async function main() {
+async function main(folderPath) {
   console.log('###########################');
   console.log('# AZURE DIAGRAM GENERATOR #');
   console.log('#       BY GANSOFT        #');
@@ -29,4 +29,6 @@ async function main() {
   console.log('\n');
 }
 
-main()
+
+//main()
+module.exports = main
