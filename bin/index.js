@@ -32,7 +32,7 @@ const path = argv.p || argv.path;
 
 //const output =  argv.o  || argv.output;
 
-console.log("path: " + path);
+//console.log("path: " + path);
 
 
 index(path)
