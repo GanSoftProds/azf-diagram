@@ -144,6 +144,8 @@ class DrawIOWriter {
 
     this.xw.endElement();
     this.xw.endDocument();
+
+    console.log(this.xw.toString());
   }
 
   test() {
@@ -193,7 +195,7 @@ class DrawIOWriter {
     this.xw.endElement();
     this.xw.endDocument();
 
-    console.log(this.xw.toString());
+    // console.log(this.xw.toString());
   }
 }
 
