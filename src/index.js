@@ -2,7 +2,7 @@ let freader = require('./readFunctionJSON');
 let processData = require('./processData');
 let DrawIOWriter = require('./DrawIOWriter');
 
-async function main() {
+async function main(folderPath) {
   const file = './azure_function_example/HttpTrigger1/function.json';
 
 
@@ -14,4 +14,5 @@ async function main() {
 }
 
 
-main()
+//main()
+module.exports = main
