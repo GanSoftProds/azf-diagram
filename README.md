@@ -11,7 +11,7 @@ This repository is part of the **Open Source Jam (2023-11-18 to 2023-11-19)**, l
 Use the Node Package Manager [npm](https://www.npmjs.com/) to install azf-diagram
 
 ```bash
-npm install azf-diagram
+npm install azf-diagram -g
 ```
 
 ## Usage
