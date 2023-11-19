@@ -11,7 +11,7 @@ This repository is part of the **Open Source Jam (2023-11-18 to 2023-11-19)**, l
 Use the Node Package Manager [npm](https://www.npmjs.com/) to install azf-diagram
 
 ```bash
-npm install azf-diagram
+npm install azf-diagram -g
 ```
 
 ## Usage
@@ -32,6 +32,12 @@ The output should be generated on a file named `diagram.drawio`, containing the 
 
 Due to the small period of time of developing this tool, we have problem with collision among the generated data.
 To avoid this, when importing to draw.io, **reorder** the diagram as you want.
+
+Before:
+![Before reorder](assets/diagram-unordered-dark.png)
+
+After:
+![After reorder](assets/diagram-ordered-dark.png)
 
 ## Dependencies
 
